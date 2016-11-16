@@ -247,3 +247,5 @@ ModelManifest.xml
 /jurank-api.sln
 /api/runtime
 /webapp/web/index.php
+/common/config/main.php
+/common/config/params.php
