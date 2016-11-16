@@ -249,3 +249,4 @@ ModelManifest.xml
 /webapp/web/index.php
 /common/config/main.php
 /common/config/params.php
+/webapp/web/.htaccess

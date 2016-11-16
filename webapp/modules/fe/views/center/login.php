@@ -10,7 +10,7 @@ $this->title='节操币系统-登录';
 <?php $this->endBlock() ?>
     <?php $this->registerJs($this->blocks["script"], \yii\web\View::POS_HEAD); ?>
 <div class="login" ng-controller="loginCtrl">
-    <p class="loginTip">节操系统登录</p>
+    <p class="loginTip">节操币系统登录</p>
     <div class="form-horizontal">
         <div class="form-group">
             <label class="col-xs-3 control-label">邮箱</label>
