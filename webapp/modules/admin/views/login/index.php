@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1 maximum-scale=1,user-scalable=no" />
     <meta name="renderer" content="webkit" />
     <meta name="wap-font-scale" content="no">
-    <title>节操币系统后台管理登录</title>
+    <title>节操币系统后台-管理登录</title>
     <!--公用CSS引用-->
     <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/static/angular/angular-loading-bar/loading-bar.min.css" />

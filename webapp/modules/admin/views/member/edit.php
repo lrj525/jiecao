@@ -1,9 +1,9 @@
 <?php
 $adminId=Yii::$app->request->get('adminId',0);
 if($adminId>0){
-    $this->title='员工-编辑';
+    $this->title='节操币系统后台-员工编辑';
 }else{
-    $this->title='员工-添加';
+    $this->title='节操币系统后台-员工添加';
 }
 
 ?>

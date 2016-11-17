@@ -1,5 +1,5 @@
 <?php
-$this->title='员工列表';
+$this->title='节操币系统后台-员工列表';
 ?>
 <div class="row list" ng-controller="memberCtrl" ng-init="getList(1)">
     <div class="col-xs-12">
