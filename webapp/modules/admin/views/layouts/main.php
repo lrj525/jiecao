@@ -31,7 +31,7 @@ $this->beginPage() ?>
     <div class="container-fluid">
         <div class="row header" ng-controller="mainTopCtrl">
             <div class="col-xs-6 brand">
-                节操币系统后台管理
+                <a href="/admin/main" class="brand">节操币系统后台管理</a>
             </div>
             <div class="col-xs-6 ">
                 <ul class="user-nav">
