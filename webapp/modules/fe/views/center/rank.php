@@ -27,14 +27,14 @@ $this->title='节操币系统-节操排名';
                         <th style="width:40px;">#</th>
                         <th style="width:100px;">
 姓名</th>                        
-                        <th >节操</th>
+                        <th >节操币</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="item in list">
                         <td>{{(currentPage-1)*pagesize+($index+1)}}</td>
                         <td >
-<a ng-href="/fe/center/member-votes?id={{item.god_member_id}}">{{item.name}}</a></td>
+<a ng-href="/fe/center/member-votes?id={{item.id}}">{{item.name}}</a></td>
                         <td ng-bind-html="item.jc | number"></td>
 
                     </tr>
