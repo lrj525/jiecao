@@ -332,8 +332,8 @@ App.controller("monthStatisticCtrl", [
     "apiService",
     "$uibModal",
     function ($scope, apiService, $uibModal) {
-        var minDate = moment("2016-10").toDate();
-        var maxDate = moment().toDate();
+        var minDate = new Date(2016, 10);
+        var maxDate = new Date();
         $scope.datepickerOptions = {
             showWeeks: false,
             startingDay: 1,
