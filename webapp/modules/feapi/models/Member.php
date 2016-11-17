@@ -146,7 +146,7 @@ class Member extends ModelBase
         $sql=$query->createCommand()->getRawSql();
 		// 总数
 		$totalCount = $query->count();
-        $query->orderBy('jc desc');
+        $query->orderBy('jc desc, id asc');
         $list=[];
         $totalPage=1;
 		// 当有结果时进行组合数据

@@ -26,9 +26,7 @@ $this->title='节操币系统-{{0}}的节操';
                 <a  class="glyphicon glyphicon-thumbs-up" >&nbsp;{{item.god_name}}</a>
             </p>
             <p class="time">
-                <a class="time" ng-href="/fe/center/member-votes?id={{item.supporter_member_id}}" title="点击查看他/她的节操">{{item.supporter_name}}</a>
-                <br />@
-                <span ng-bind-html="item.create_time"></span>
+                <span class="glyphicon glyphicon-time" ng-bind-html="item.create_time"></span>
             </p>
         </div>
         <div class="col-xs-9 right">
