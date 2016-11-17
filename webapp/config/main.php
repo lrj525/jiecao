@@ -44,6 +44,7 @@ return [
         'admin' => [
             'basePath' => '@webapp/modules/admin',
             'class'    => 'webapp\modules\admin\Module',
+            'defaultRoute' => 'main/index',
         ],
         'adminapi' => [
             'basePath' => '@webapp/modules/adminapi',
