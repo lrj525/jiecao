@@ -98,6 +98,14 @@ a:link, a:hover, a:visited { text-decoration: none; }
 .vote .list .time{color:#999;margin:0;font-size:12px;}
 .vote .list .glyphicon-thumbs-up{padding-left:3px;}
 .vote .list .glyphicon-thumbs-up:before{position:absolute;left:0;}
+.vote .list .right{min-height:85px;padding-left:25px;}
+.vote .list .chevron-right{position:absolute;left:0;height:100%;top:0;width:5px;}
+
+.vote .list .chevron-right:after, 
+.vote .list .chevron-right:before { border: 10px solid transparent; border-right: 10px solid #fff; width: 0; height: 0; position: absolute; top: 50%; left: -15px; content: ' '; margin-top: -10px; }
+
+.vote .list .chevron-right:before { border-right-color: #f2f2f2; left: -16px; }
+
 .vote .select{}
 .vote .god-list{margin-top:15px;}
 .vote  .line{border-bottom:1px solid #ccc;margin-top:15px;}
@@ -105,3 +113,7 @@ a:link, a:hover, a:visited { text-decoration: none; }
 .title{font-weight:bold;font-size:14px;line-height:24px;}
 
 .vote .list .count{font-size:16px;font-weight:bold;}
+.title1{font-weight:bold;font-size:18px;text-align:center;padding:8px 15px;margin:0;}
+.line-bottom{border-bottom:1px solid #f2f2f2;}
+.line-left{border-left:1px solid #f2f2f2;}
+.line-right{border-right:1px solid #f2f2f2;}

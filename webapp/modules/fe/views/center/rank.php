@@ -7,7 +7,7 @@ $this->title='节操币系统-节操排名';
             <table>
                 <tr>
                     <td>
-                        <input type="text" class="form-control" readonly="readonly" style="cursor:text;background:#ffffff;" placeholder="选择月份" uib-datepicker-popup="yyyy-MM" is-open="is_open" show-button-bar="false" datepicker-options="datepickerOptions" ng-model="query.month" ng-click="is_open=true" />
+                        <input type="text" class="form-control" readonly="readonly" style="cursor:text;background:#ffffff;" placeholder="选择月份查看排名" uib-datepicker-popup="yyyy-MM" is-open="is_open" show-button-bar="false" datepicker-options="datepickerOptions" ng-model="query.month" ng-click="is_open=true" />
                     </td>
                     <td>
                         &nbsp;

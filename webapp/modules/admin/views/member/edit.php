@@ -21,7 +21,7 @@ if($adminId>0){
                 <label class="col-xs-2 control-label">密码</label>
                 <div class="col-xs-10">
                     <input type="password" class="form-control" placeholder="密码" ng-model="dataModel.password" name="password" errormsg="密码必须填写" ng-if="id>0" />
-                    <span ng-if="id>0">输入密码时为修改当前密码</span>
+                    <span ng-if="id>0">输入密码时则修改当前密码，留空则不修改</span>
                     <input type="password" class="form-control" placeholder="密码" ng-model="dataModel.password" name="password" required errormsg="密码必须填写" ng-if="id==0" />
                 </div>
             </div>

@@ -287,7 +287,7 @@ App.controller("rankCtrl", [
                 return "总排名";
             }
             else {
-                return moment(month).format("YYYY-MM");
+                return moment(month).format("YYYY年MM月排名");
             }
         }
         $scope.clearMonth = function () {
