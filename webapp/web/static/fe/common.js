@@ -56,8 +56,8 @@ App.factory("authInterceptorService", [
                 config.headers.Authorization = "Bearer " + authData.access_token;
             }
             //config.headers["Content-Type"] = "text/plain;charset=UTF-8";//"application/x-www-form-urlencoded";
-            config.headers["client_id"] = ngSettings.client_id;
-            config.headers["client_secret"] = ngSettings.client_secret;
+            config.headers["client-id"] = ngSettings.client_id;
+            config.headers["client-secret"] = ngSettings.client_secret;
             return config;
         }      
         var _responseError = function (rejection) {           
@@ -86,7 +86,7 @@ App.factory("authService", [
             _logOut();
             var data = "grant_type=password&username=" + loginData.username + "&password=" + loginData.password;
             var deferred = $q.defer();
-            $http.post(serviceBase + "/user/login", data, { "headers": { "Content-Type": "application/x-www-form-urlencoded", "client_id": ngSettings.client_id, "client_secret": ngSettings.client_secret } }).success(function (response) {
+            $http.post(serviceBase + "/user/login", data, { "headers": { "Content-Type": "application/x-www-form-urlencoded", "client-id": ngSettings.client_id, "client-secret": ngSettings.client_secret } }).success(function (response) {
                 if (response.success) {
                     var data = response.data;
                     _authentication.access_token = data.token.access_token;

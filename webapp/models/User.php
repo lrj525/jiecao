@@ -20,7 +20,7 @@ class User extends ActiveRecord implements IdentityInterface,UserCredentialsInte
 
     public static function tableName()
     {
-        $client_id=Yii::$app->request->headers->get('client_id');
+        $client_id=Yii::$app->request->headers->get('client-id');
         if($client_id=='jc_admin'){
             return 'jc_admin';
         }else if($client_id=='jc_fe'){

@@ -76,8 +76,8 @@ class UserController extends ActiveController
      **/
     protected function token()
     {
-        $client_id=Yii::$app->request->headers->get('client_id');
-        $client_secret=Yii::$app->request->headers->get('client_secret');
+        $client_id=Yii::$app->request->headers->get('client-id');
+        $client_secret=Yii::$app->request->headers->get('client-secret');
         $data = [
              'client_id'     => $client_id,
              'client_secret' => $client_secret
