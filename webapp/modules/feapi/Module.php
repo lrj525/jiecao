@@ -1,5 +1,4 @@
 <?php
-
 namespace webapp\modules\feapi;
 
 class Module extends \yii\base\Module
@@ -8,7 +7,7 @@ class Module extends \yii\base\Module
 
     public function init()
     {
-
+        //初始化
         parent::init();
     }
 }

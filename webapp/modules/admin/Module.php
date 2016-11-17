@@ -1,5 +1,5 @@
 <?php
-
+//入口
 namespace webapp\modules\admin;
 
 class Module extends \yii\base\Module

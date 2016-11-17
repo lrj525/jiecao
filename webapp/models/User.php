@@ -1,4 +1,5 @@
 <?php
+ //用户基类
 namespace webapp\models;
 
 use Yii;

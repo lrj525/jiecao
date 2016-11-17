@@ -27,6 +27,14 @@ class MemberController extends ApiBaseController
     public function actionSave(){
         $postData = Yii::$app->request->post();
         $result= Member::saveModel($postData);
+        if(!isset($result['success'])){
+            //发送邮件
+            Yii::$app->mailer->compose()
+                ->setTo($result->username)
+                ->setSubject('节操币系统账号开通')
+                ->setHtmlBody($result->name.'您好：<br/>你的节操币系统账号已开通<br/>您可以从：http://jc.juniulvxing.cn 或 http://oa.juniu.tv/进行登录<br />登录邮箱：'.$result->username.'<br />初始密码：'.$postData['password'])
+                ->send();
+        }
         return $result;
     }
     /**
@@ -66,7 +74,7 @@ class MemberController extends ApiBaseController
                 Yii::$app->mailer->compose()
                     ->setTo($result->username)
                     ->setSubject('节操币系统账号开通')
-                    ->setHtmlBody('登录地址：http://jc.juniulvxing.cn，或从http://oa.juniu.tv/进入<br />登录邮箱：'.$result->username.'<br />初始密码：'.$password)
+                    ->setHtmlBody($result->name.'您好：<br/>你的节操币系统账号已开通<br/>您可以从：http://jc.juniulvxing.cn 或 http://oa.juniu.tv/进行登录<br />登录邮箱：'.$result->username.'<br />初始密码：'.$password)
                     ->send();
             }
         }

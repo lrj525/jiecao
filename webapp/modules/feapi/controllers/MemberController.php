@@ -1,4 +1,5 @@
 <?php
+// æ§åˆ¶å™¨
 namespace webapp\modules\feapi\controllers;
 
 use Yii;
@@ -14,14 +15,14 @@ class MemberController extends ApiBaseController
         'collectionEnvelope' => 'items',
     ];
     /**
-     * ÏêÇé
+     * è¯¦æƒ…
      * @author lrj
      */
     public function actionView($id){
         return Member::findById($id);
     }
     /**
-     * ĞŞ¸ÄÃÜÂë
+     * ä¿®æ”¹å¯†ç 
      * @author lrj
      */
     public function actionModifyPassword(){
@@ -32,7 +33,7 @@ class MemberController extends ApiBaseController
     }
 
     /**
-     * ÁĞ±í
+     * åˆ—è¡¨
      * @author lrj
      */
     public function actionSearch(){
@@ -51,7 +52,7 @@ class MemberController extends ApiBaseController
         return Member::getList($where,$page,$pageSize,$order);
     }
     /**
-     * ÁĞ±í
+     * åˆ—è¡¨
      * @author lrj
      */
     public function actionRank(){

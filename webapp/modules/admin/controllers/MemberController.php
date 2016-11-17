@@ -1,4 +1,5 @@
 <?php
+//页面控制器
 namespace webapp\modules\admin\controllers;
 
 use Yii;

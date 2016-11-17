@@ -14,7 +14,7 @@ use webapp\models\ModelBase;
 use yii\helpers\ArrayHelper;
 
 /**
- * 
+ *
  *
  * @property integer $id
  * @property string $name
@@ -123,7 +123,7 @@ class Votes extends ModelBase
         $model->month=$month;
         $result=$model->save();
         if($result){
-            return true;
+            return $model;
         }
         return array('success'=>false,'message'=>'操作失败，请重试');
     }

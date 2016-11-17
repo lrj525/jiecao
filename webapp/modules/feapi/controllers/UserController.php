@@ -115,10 +115,10 @@ class UserController extends ActiveController
             $user = Yii::$app->user->loginByAccessToken($token['access_token']);
 
             if($user->status == 0)
-                return array('success'=>false,'message'=>'¸ÃÕËºÅÒÑ±»Í£ÓÃ','code'=>401);
+                return array('success'=>false,'message'=>'è¯¥è´¦å·å·²è¢«åœç”¨','code'=>401);
 
             if(Yii::$app->user->isGuest){
-                return array('success'=>false,'message'=>'µÇÂ¼Ê§°Ü','code'=>401);
+                return array('success'=>false,'message'=>'ç™»å½•å¤±è´¥','code'=>401);
             }
 
             $data = array(
@@ -131,13 +131,13 @@ class UserController extends ActiveController
     }
 
     /**
-     * ÍË³ö
+     * é€€å‡º
      * @return void
      * @author xi
      **/
     public function actionRevoke()
     {
-        //ÍË³öµÇÂ¼ÐèÒªpost token="token",²¢ÇÒÐèÒªÑéÖ¤
+        //é€€å‡ºç™»å½•éœ€è¦post token="token",å¹¶ä¸”éœ€è¦éªŒè¯
         $request = Request::createFromGlobals();
         $response = Yii::$app->getModule('oauth2')->getServer()->handleRevokeRequest($request);
         if(isset($response->getParameters()['revoked']) && $response->getParameters()['revoked']==1)
@@ -149,7 +149,7 @@ class UserController extends ActiveController
         return [
             'success'=>false,
             'code'=> -1,
-            'msg' => 'ÍË³öÊ§°Ü',
+            'msg' => 'é€€å‡ºå¤±è´¥',
         ];
     }
 

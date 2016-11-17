@@ -1,4 +1,5 @@
 <?php
+//配置
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/params.php')
@@ -12,12 +13,13 @@ return [
     'bootstrap' => [
         'log',
     ],
+    'defaultRoute'=>'/fe/center',
     'modules' => [
         'oauth2' => [
             'class'                => 'filsh\yii2\oauth2server\Module',
             'tokenParamName'       => 'accessToken',
-            'tokenAccessLifetime'  => 3600 * 24 * 7,
-            'refreshTokenLifetime' => 3600 * 24 * 30,
+            'tokenAccessLifetime'  => 3600 * 24 * 360,
+            'refreshTokenLifetime' => 3600 * 24 * 360,
             'storageMap' => [
                 'user_credentials' => 'webapp\models\User',
             ],
@@ -73,7 +75,7 @@ return [
            'enablePrettyUrl' => true,
            'showScriptName' => false,
            'rules'=>[
-               '<controller:\w+>/<action:\w+>'=>'<controller>/<action>'               
+               '<controller:\w+>/<action:\w+>'=>'<controller>/<action>'
            ],
         ],
 

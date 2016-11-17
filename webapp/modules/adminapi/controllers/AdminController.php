@@ -14,14 +14,14 @@ class AdminController extends ApiBaseController
         'collectionEnvelope' => 'items',
     ];
     /**
-     * ÏêÇé
+     * è¯¦æƒ…
      * @author lrj
      */
     public function actionView($id){
         return Admin::findById($id);
     }
     /**
-     * ±à¼­
+     * ç¼–è¾‘
      * @author lrj
      */
     public function actionSave(){
@@ -30,7 +30,7 @@ class AdminController extends ApiBaseController
         return $result;
     }
     /**
-     * ÁĞ±í
+     * åˆ—è¡¨
      * @author lrj
      */
     public function actionSearch(){
@@ -45,7 +45,7 @@ class AdminController extends ApiBaseController
         return Admin::getList($where,$page,$pageSize,$order);
     }    
     /**
-     * ¸ü¸Ä×´Ì¬
+     * æ›´æ”¹çŠ¶æ€
      * @author lrj
      */
     public function actionStatus($id,$status){

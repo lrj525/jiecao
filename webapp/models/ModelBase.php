@@ -1,4 +1,6 @@
 <?php
+//Model基类
+
 namespace webapp\models;
 use yii\db\ActiveRecord;
 
