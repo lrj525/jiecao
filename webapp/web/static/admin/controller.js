@@ -10,11 +10,13 @@ App.controller("mainTopCtrl", [
         $scope.logout = function () {
             authService.logOutFromServer();
         };
-        apiService.get('/member/batch-add').then(function (res) {
-            if (res.success) {
-                alert('成功')
-            }
-        });
+        $scope.batchAdd = function () {
+            apiService.get('/member/batch-add').then(function (res) {
+                if (res.success) {
+                    alert('成功')
+                }
+            });
+        };
     }]);
 /*通用左则*/
 App.controller("mainLeftCtrl", [
