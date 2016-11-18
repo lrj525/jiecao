@@ -5,10 +5,18 @@ $this->title='节操币系统-首页';
     <h1 class="title1 line-bottom">节操墙</h1>
     <div class="row list" ng-repeat="item in list">
         <div class="col-xs-3">
-            <p class="month" ng-bind-html="item.month"></p>
-            <p> 
-                <a ng-href="/fe/center/member-votes?id={{item.god_member_id}}" class="glyphicon glyphicon-thumbs-up" title="点击查看他/她的节操">&nbsp;{{item.god_name}}</a>
-            </p>
+            <!--<p class="month" ng-bind-html="item.month"></p>-->
+            <div style="height:50px;line-height:50px;"> 
+                
+                <div class="avatarIcon avatarList pull-left">
+                    <div class="glyphicon glyphicon-user default-icon"></div>
+                    <div class="photo" ng-show="userData.avatar">
+                        <img ng-src="{{userData.avatar}}" />
+                    </div>
+                </div>
+                <div class="avatarName pull-left">
+<a ng-href="/fe/center/member-votes?id={{item.god_member_id}}"  title="点击查看他/她的节操">&nbsp;{{item.god_name}}</a></div>
+            </div>
             <p class="time"><span class="glyphicon glyphicon-time" ng-bind-html="item.create_time"></span></p>           
         </div>
         <div class="col-xs-9 right">

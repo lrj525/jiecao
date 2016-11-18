@@ -149,5 +149,5 @@ a:link, a:hover, a:visited { text-decoration: none; }
 .avatarIcon{margin-top:5px;}
 .avatarName{display:inline-block;padding-left:5px;}
 
-.avatarList{border-radius:5px;background-color:#fff;}
-.avatarList .default-icon{color:#ccc}
+.avatarList{border-radius:5px;background-color:#08a1ef;}
+/*.avatarList .default-icon{color:#ccc}*/
