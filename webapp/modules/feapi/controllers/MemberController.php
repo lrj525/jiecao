@@ -57,7 +57,7 @@ class MemberController extends ApiBaseController
         $pageSize = intval(Yii::$app->request->post('pagesize',10));
         $keyword=Yii::$app->request->post('keyword','');
         $id=Yii::$app->user->identity->id;
-        $order='id asc';
+        $order='convert(name using gbk) asc';
         $where = [
             'id'=>['<>',$id],
             'status'=>['<>',0]
