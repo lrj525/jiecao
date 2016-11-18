@@ -71,7 +71,7 @@ a:link, a:hover, a:visited { text-decoration: none; }
 .header { height: 50px; background-color: #4D5F84; color: #fff; min-width:320px;box-sizing:border-box;padding:0px;margin:0;}
 .header .brand { font-size: 18px; font-weight: bold; line-height: 80px; }
 .header .user-nav-wrap{width:100%;overflow:hidden;-webkit-overflow-scrolling: touch;overflow-scrolling: touch;}
-.header .user-nav {  color: #fff; width:568px;}
+.header .user-nav {  color: #fff; width:510px;}
 .header .user-nav li { line-height:50px;float: left; margin-right: 15px; }
 .header .user-nav li a { color: #fff; }
 
@@ -150,7 +150,7 @@ a:link, a:hover, a:visited { text-decoration: none; }
 .avatarList{border-radius:5px;background-color:#08a1ef;}
 /*.avatarList .default-icon{color:#ccc}*/
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 510px) {
     /*.pbody{padding:15px 0;}*/
     .header .user-nav-wrap { overflow-x: auto; }
 
