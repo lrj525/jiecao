@@ -1,8 +1,10 @@
 var App = angular.module("App", [
     "angular-loading-bar",
-    "ngAnimate",      
-    "ngSanitize",   
-    "ui.bootstrap"
+    "ngAnimate",
+    "ngSanitize",
+    "ui.bootstrap",
+    "ngFileUpload",
+    "ngImgCrop"
 ]);
 App.config([
     "cfpLoadingBarProvider",
@@ -11,7 +13,8 @@ App.config([
         cfpLoadingBarProvider.includeSpinner = false;
         cfpLoadingBarProvider.includeBar = true;
         $httpProvider.interceptors.push("authInterceptorService");        
-    }]);
+    }
+]);
 
 
 App.constant("ngSettings", {
@@ -26,8 +29,10 @@ App.constant("ngSettings", {
 App.run([
     "authService",
     "ngSettings",
-    "$rootScope",    
-    function (authService, ngSettings, $rootScope) {
+    "$rootScope",
+    "$uibModal",
+    "$timeout",
+    function (authService, ngSettings, $rootScope,$uibModal,$timeout) {
         authService.fillAuthData();
         var serverUrl = ngSettings.apiServiceBaseUri;        
         $rootScope.goback = function () {
@@ -35,8 +40,9 @@ App.run([
         }        
         $rootScope.goToLogin = function(){
             window.location.href = ngSettings.loginUrl;
-        }
-    }]);
+        }       
+    }
+]);
 
 
 App.factory("authInterceptorService", [
@@ -66,7 +72,8 @@ App.factory("authInterceptorService", [
         authInterceptorServiceFactory.request = _request;
         authInterceptorServiceFactory.responseError = _responseError;
         return authInterceptorServiceFactory;
-    }]);
+    }
+]);
 
 App.factory("authService", [
     "$http",
@@ -158,7 +165,8 @@ App.factory("authService", [
         authServiceFactory.logOutFromServer = _logOutFromServer;
         
         return authServiceFactory;
-    }]);
+    }
+]);
 
 App.factory("apiService", [
     "$http",
@@ -275,10 +283,94 @@ App.factory("apiService", [
         apiServiceFactory.delete = _delete;
         apiServiceFactory.getAll = _getAll;
         return apiServiceFactory;
-    }]);
+    }
+]);
 
 
+App.factory("imageCrop", [
+    "$uibModal", 
+    function ($uibModal) {
+        return {
+            open: function (options) {
+                options = angular.extend({
+                    changeOnFly: false,
+                    areaType: "circle",
+                    areaMinSize: 80,
+                    resultImageSize: 200,
+                    resultImageFormat: "image/png",
+                    resultImageQuality: 1,
+                    resultImage: ''
+                }, options);
 
+                var modalInstance = $uibModal.open({
+                    backdrop: 'static',
+                    templateUrl: "/file-upload-single-tpl.html",
+                    controller: "imageCropCtrl",
+                    resolve: {
+                        options: function () {
+                            return options;
+                        }
+                    }
+                });
+                return modalInstance;
+            }
+        };
+    }
+]);
 
+App.controller("imageCropCtrl", [
+    "$scope",
+    "options",
+    "Upload",
+    "ngSettings",
+    "$uibModalInstance",
+    "apiService",
+    function ($scope, options, Upload, ngSettings, $uibModalInstance, apiService) {
 
+        $scope.options = options;
+        $scope.onChange = function () {
 
+        };
+        $scope.onLoadBegin = function () {
+
+        };
+        $scope.onLoadDone = function () {
+
+        };
+        $scope.onLoadError = function () {
+
+        };
+        $scope.selectedImage = function (files) {
+            if (files.length > 0) {
+                var file = files[0];
+                var reader = new FileReader();
+                reader.onload = function (evt) {
+                    $scope.$apply(function ($scope) {
+                        $scope.options.image = evt.target.result;
+                    });
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        $scope.ok = function () {
+            $scope.result = {};
+            var serviceBase = ngSettings.apiServiceBaseUri;
+            apiService.post('/file/upload-base64', { base64_image_content: $scope.options.resultImage }).then(function (res) {
+                if (res.success) {
+                    $scope.result.progress = 100;
+                    $scope.result.pictureUrl = res.data.pictureUrl;
+                    $uibModalInstance.close($scope.result.pictureUrl);
+                } else {
+                    $scope.result.errorMsg = res.message;
+                }
+            });
+        };
+
+    }
+]);
+App.run([
+      '$templateCache',
+      function ($templateCache) {
+          $templateCache.put('/file-upload-single-tpl.html', '<div class="modal-header no-line"><button type="button" class="close" ng-click="$dismiss()"><span aria-hidden="true">×</span></button><h4 class="modal-title">图片裁切 <span class="action">图片将按照要求的比例进行裁切</span></h4></div><div class="modal-body"><div class="cropArea"><img-crop image="options.image" result-image="options.resultImage" change-on-fly="options.changeOnFly" area-type="{{options.areaType}}" area-min-size="options.areaMinSize" result-image-size="options.resultImageSize" result-image-format="{{options.resultImageFormat}}" result-image-quality="options.resultImageQuality" on-change="onChange()" on-load-begin="onLoadBegin()" on-load-done="onLoadDone()" on-load-error="onLoadError()"></img-crop></div></div><div class="modal-footer"><div class="row"><div class="col-xs-6"><ul><li style="font:smaller"><span class="progress" ng-show="result.progress >= 0">上传进度：<span style="width:{{result.progress}}%" ng-bind="result.progress + \'%\'"></span></span> <span>{{result.errorMsg}}</span></li></ul></div><div class="col-xs-6"><button id="fileUploadSingleBtn" class="btn btn-primary" style="width:88px" ng-model="files" ngf-select="selectedImage($files,$invalidFiles)" ngf-multiple="false" accept="\'.png,.jpg,.bmp,.gif,jpeg\'" ngf-max-size="5MB">选择图片</button> <button class="btn btn-primary" style="width:88px" ng-click="ok()">确定</button></div></div></div>');
+      }
+]);

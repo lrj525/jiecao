@@ -6,13 +6,21 @@ App.controller("mainCtrl", [
     "apiService",
     "$uibModal",
     function ($scope, authService, ngSettings, apiService, $uibModal) {
-        $scope.user = JSON.parse(window.localStorage.getItem("jc_user"));
         
+        $scope.showHeader = true;
         $scope.logout = function () {
             authService.logOutFromServer();
         };
-        $scope.showHeader = function () {
-            return angular.isObject($scope.user);
+        if (window.location.href.indexOf('/login') > -1) {
+            $scope.showHeader = false;
+        } else {
+            $scope.getMyInfo = function () {
+                apiService.get("/member/my-info").then(function (res) {
+                    if (res.success) {
+                        $scope.userData = res.data;
+                    } 
+                });
+            };
         }
     }]);
 
@@ -299,5 +307,50 @@ App.controller("rankCtrl", [
                 $scope.getList();
             }
         })
+
+    }]);
+
+/*个人信息*/
+App.controller("myInfoCtrl", [
+    "$scope",
+    "apiService",
+    "$uibModal",
+    "authService",
+    "imageCrop",
+    function ($scope, apiService, $uibModal, authService, imageCrop) {
+        $scope.userData = {};
+        $scope.getMyInfo = function () {
+            apiService.get("/member/my-info").then(function (res) {
+                if (res.success) {
+                    $scope.userData = res.data;
+                }
+            });
+        };
+        $scope.openImageCropModal = function () {
+            imageCrop.open({ resultImageSize: 150, areaType: "square", areaMinSize:150}).result.then(function (result) {
+                $scope.userData.avatar = result;
+            });            
+        };
+        
+        $scope.submit = function (form) {
+            form.$setDirty();
+            if (form.$valid) {
+                $scope.errors = [];
+                apiService.post("/member/edit-my-info", $scope.userData).then(function (res) {
+                    if (res.success) {
+                        var modalInstance = $uibModal.open({
+                            template: '<div class="modal-header"><button type="button" class="close" ng-click="$dismiss()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><h4 class="modal-title"></h4></div><div class="modal-body"><p>操作成功,</p></div><div class="modal-footer"><button type="button" class="btn btn-default" ng-click="$dismiss()">关闭</button></div>'
+                        });
+                        modalInstance.closed.then(function () {
+                            //window.location.reload();
+                        });
+                    }
+                });
+
+
+            } else {
+                $scope.errors = formValidate(form);
+            }
+        };
 
     }]);

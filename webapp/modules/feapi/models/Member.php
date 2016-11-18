@@ -17,9 +17,15 @@ use yii\helpers\ArrayHelper;
  * This is the model class for table "{{%jc_member}}".
  *
  * @property integer $id
- * @property string $name
  * @property string $username
- * @property integer $status
+ * @property string $name
+ * @property string $mobile
+ * @property string $birthday
+ * @property string $nick_name
+ * @property string $wechat
+ * @property string $qq
+ * @property string $introduce
+ * @property string $avatar
  */
 class Member extends ModelBase
 {
@@ -32,7 +38,47 @@ class Member extends ModelBase
         unset($fields['password_hash']);
         return $fields;
     }
-
+    public function behaviors()
+    {
+        return [];
+    }
+    //public function rules()
+    //{
+    //    return [
+    //        [['username','name'],'required'],
+    //        [['username','name','mobile','birthday','nick_name','wechat','qq','introduce','avatar'],'safe'],
+    //    ];
+    //}
+    //public function attributeLabels()
+    //{
+    //    return [
+    //        'id' => 'ID',
+    //        'username' => '邮箱',
+    //        'name' => '姓名',
+    //        'password'      => '密码',
+    //        'sex'=>'性别',
+    //        'mobile'=>'手机号',
+    //        'birthday'=>'生日',
+    //        'nick_name'=>'昵称',
+    //        'wechat'=>'微信',
+    //        'qq'=>'QQ',
+    //        'introduce'=>'签名',
+    //        'avatar'=>'头像',
+    //    ];
+    //}
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if($insert) {
+                $this->create_time = $this->update_time = date('Y-m-d H:i:s', time());
+            } else {
+                $this->update_time =  date('Y-m-d H:i:s', time());
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
     /**
      * 取列表带分页
      * @param array $where
@@ -143,7 +189,7 @@ class Member extends ModelBase
             }
         }
 
-        $sql=$query->createCommand()->getRawSql();
+        //$sql=$query->createCommand()->getRawSql();
 		// 总数
 		$totalCount = $query->count();
         $query->orderBy('jc desc, id asc');
@@ -164,5 +210,23 @@ class Member extends ModelBase
 			$list =$query->asArray()->all();
 		}
         return parent::createPageData($totalCount,$totalPage,$page,$list);
+    }
+    /**
+     * 编辑
+     * @author lrj
+     */
+    public static function saveModel($postData){
+        $id=Yii::$app->user->identity->id;
+        $postData['id']=$id;
+        $model = static::findById($postData['id']);
+        unset($postData['id']);
+        unset($postData['username']);
+        unset($postData['name']);
+        $model->setAttributes($postData,false);
+        if($model->save())
+        {
+            return $model;
+        }
+        return array('success'=>false,'message'=>'添加失败，请重试');
     }
 }

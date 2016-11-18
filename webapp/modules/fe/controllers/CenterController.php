@@ -1,6 +1,6 @@
 <?php
 // 控制器
- 
+
 namespace webapp\modules\fe\controllers;
 
 use Yii;
@@ -18,7 +18,7 @@ class CenterController extends BaseController
     public function actionLogin(){
         return $this->render('login');
     }
-    
+
     public function actionVotes(){
         return $this->render('votes');
     }
@@ -27,5 +27,8 @@ class CenterController extends BaseController
     }
     public function actionRank(){
         return $this->render('rank');
+    }
+    public function actionMyInfo(){
+        return $this->render('my-info');
     }
 }

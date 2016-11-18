@@ -22,6 +22,22 @@ class MemberController extends ApiBaseController
         return Member::findById($id);
     }
     /**
+     * 获取当前用户的个人信息
+     * @author lrj
+     */
+    public function actionMyInfo(){
+        $id=Yii::$app->user->identity->id;
+        return Member::findById($id);
+    }
+    /**
+     * 编辑个人信息
+     * @author lrj
+     */
+    public function actionEditMyInfo(){
+        $postData = Yii::$app->request->post();
+        return Member::saveModel($postData);
+    }
+    /**
      * 修改密码
      * @author lrj
      */

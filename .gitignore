@@ -250,3 +250,5 @@ ModelManifest.xml
 /common/config/main.php
 /common/config/params.php
 /webapp/web/.htaccess
+/webapp/web/uploads
+/webapp/runtime
