@@ -1,4 +1,5 @@
 /*common*/
+
 html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-size: 14px; }
 body { color: #000; background-color: #f5f5f5; font-size: 14px; font-family: Arial, 'Microsoft YaHei'; /*cursor:pointer;*/ }
 html, body { height: 100%; }
