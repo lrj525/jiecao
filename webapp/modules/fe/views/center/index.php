@@ -10,8 +10,8 @@ $this->title='节操币系统-首页';
                 
                 <div class="avatarIcon avatarList">
                     <div class="glyphicon glyphicon-user default-icon"></div>
-                    <div class="photo" ng-show="userData.avatar">
-                        <img ng-src="{{userData.avatar}}" />
+                    <div class="photo" ng-show="item.avatar">
+                        <img ng-src="{{item.avatar}}" />
                     </div>
                 </div>
                 <div class="avatarName">

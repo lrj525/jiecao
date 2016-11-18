@@ -66,7 +66,7 @@ class Votes extends ModelBase
 	{
         $query=self::find();
         //$query->select(['jc_votes.*','date_format(jc_votes.create_time,"%c月") as month','(select name from jc_member where id=supporter_member_id) as supporter_name','(select name from jc_member where id=god_member_id) as god_name']);
-        $query->select(['jc_votes.id','jc_votes.create_time','jc_votes.god_member_id','jc_votes.month','jc_votes.notes','jc_votes.supporter_member_id as sid','date_format(jc_votes.create_time,"%c月") as month','(select name from jc_member where id=god_member_id) as god_name']);
+        $query->select(['jc_votes.id','jc_votes.create_time','jc_votes.god_member_id','jc_votes.month','jc_votes.notes','jc_votes.supporter_member_id as sid','date_format(jc_votes.create_time,"%c月") as month','(select name from jc_member where id=god_member_id) as god_name','(select avatar from jc_member where id=god_member_id) as avatar']);
         if($where){
             foreach ($where as $key=>$val)
             {
