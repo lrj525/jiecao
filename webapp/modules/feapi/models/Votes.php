@@ -100,7 +100,7 @@ class Votes extends ModelBase
         return parent::createPageData($totalCount,$totalPage,$page,$list);
     }
     /**
-     * 编辑
+     * 送节操
      * @author lrj
      */
     public static function saveModel($supporter_member_id,$god_member_id,$notes,$month){
@@ -109,12 +109,14 @@ class Votes extends ModelBase
         }
         //$now=date('Y-m', time());
         $query=self::find();
-        $query->where(['supporter_member_id'=>$supporter_member_id,'god_member_id'=>$god_member_id,'month'=>$month]);
+        //$query->where(['supporter_member_id'=>$supporter_member_id,'god_member_id'=>$god_member_id,'month'=>$month]);//送多个人同一月
+        //每个月只能送一个人
+        $query->where(['supporter_member_id'=>$supporter_member_id,'month'=>$month]);
         //$sql=$query->createCommand()->getRawSql();
         $result=$query->all();
 
         if($result){
-            return array('success'=>false,'message'=>'这个月的节操您已经送给过他了哦！');
+            return array('success'=>false,'message'=>'这个月您已经没有节操可送了！');
         }
         $model = new Votes();
         $model->supporter_member_id=$supporter_member_id;

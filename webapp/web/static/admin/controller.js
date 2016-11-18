@@ -326,75 +326,39 @@ App.controller("memberCtrl", [
 
 
 
-/*月归档操作*/
-App.controller("monthStatisticCtrl", [
+/*设置*/
+App.controller("settingsCtrl", [
     "$scope",
     "apiService",
     "$uibModal",
     function ($scope, apiService, $uibModal) {
-        var minDate = new Date(2016, 10);
-        var maxDate = new Date();
-        $scope.datepickerOptions = {
-            showWeeks: false,
-            startingDay: 1,
-            datepickerMode: "month",
-            maxMode: "month",
-            minMode: "month",
-            minDate: minDate,
-            maxDate: maxDate
-        };
-        $scope.query = {
-            month:new Date()
-        }
-        $scope.checkArchive = function () {
-            var query = angular.copy($scope.query);
-            if (query.month != "") {
-                query.month = moment(query.month).format("YYYY-MM");
-            }
-                apiService.post("/month-archive/exist", query).then(function (res) {
-                    if (res.success) {
-                        if (res.data) {
-                            if (confirm("所选月份的归档数据已经存在了，你确定要重新生成归档数据吗？")) {
-                                $scope.createArchive();
-                            }
-                        } else {
-                            $scope.createArchive();
-                        }
-                    }
-                });
-        }
-        $scope.createArchive = function () {
-            var query = angular.copy($scope.query);
-            if (query.month != "") {
-                query.month = moment(query.month).format("YYYY-MM");
-            }
-            apiService.post("/month-archive/create", query).then(function (res) {
+        $scope.btnDesc = "";
+        $scope.currStatus = "";
+        $scope.getVoteClosed = function () {
+            apiService.get("/settings/get-vote-closed").then(function (res) {
                 if (res.success) {
-                    
+                    if (res.data == 1) {
+                        $scope.btnDesc = "开启";
+                        $scope.currStatus = "关闭中";
+                    } else {
+                        $scope.btnDesc = "关闭";
+                        $scope.currStatus = "开启中";
+                    }
+                }
+            });
+        };
+        $scope.setVoteClosed = function () {
+            apiService.get("/settings/set-vote-closed").then(function (res) {
+                if (res.success) {
+                    if (res.data == 1) {
+                        $scope.btnDesc = "开启";
+                        $scope.currStatus = "关闭中";
+                    } else {
+                        $scope.btnDesc = "关闭";
+                        $scope.currStatus = "开启中";
+                    }
                 }
             });
         }
-        ////列表
-        //$scope.currentPage = 1;
-        //$scope.pagesize = 10;
-        //$scope.totalCount = 0
-        //$scope.query = {
-        //    page: $scope.currentPage,
-        //    pagesize: $scope.pagesize,
-        //    keyword: "",
-        //};
-        //$scope.getList = function (page) {
-        //    if (page) {
-        //        $scope.currentPage = page;
-        //    }
-        //    $scope.query.page = $scope.currentPage;
-        //    apiService.post("/member/search", $scope.query).then(function (res) {
-        //        if (res.success) {
-        //            $scope.list = res.data.list;
-        //            $scope.totalCount = res.data.totalCount;
-        //        }
-        //    });
-        //};
-
-    
-    }]);
+    }
+]);

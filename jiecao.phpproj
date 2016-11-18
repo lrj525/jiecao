@@ -36,6 +36,7 @@
     <Folder Include="webapp\modules\" />
     <Folder Include="webapp\modules\admin\views\login\" />
     <Folder Include="webapp\modules\admin\views\member\" />
+    <Folder Include="webapp\modules\admin\views\settings\" />
     <Folder Include="webapp\modules\fe\" />
     <Folder Include="webapp\modules\fe\controllers\" />
     <Folder Include="webapp\modules\fe\models\" />
@@ -140,12 +141,15 @@
     <Compile Include="webapp\filters\FilterAuth.php" />
     <Compile Include="webapp\models\ModelBase.php" />
     <Compile Include="webapp\models\User.php" />
+    <Compile Include="webapp\modules\adminapi\controllers\SettingsController.php" />
     <Compile Include="webapp\modules\adminapi\controllers\MemberController.php" />
     <Compile Include="webapp\modules\adminapi\controllers\AdminController.php" />
     <Compile Include="webapp\modules\adminapi\controllers\UserController.php" />
+    <Compile Include="webapp\modules\adminapi\models\Settings.php" />
     <Compile Include="webapp\modules\adminapi\models\Member.php" />
     <Compile Include="webapp\modules\adminapi\models\Admin.php" />
     <Compile Include="webapp\modules\adminapi\models\Votes.php" />
+    <Compile Include="webapp\modules\admin\controllers\SettingsController.php" />
     <Compile Include="webapp\modules\admin\controllers\LoginController.php" />
     <Compile Include="webapp\modules\admin\controllers\MemberController.php" />
     <Compile Include="webapp\modules\admin\views\main\admin-list.php" />
@@ -154,10 +158,12 @@
     <Compile Include="webapp\modules\admin\views\login\index.php" />
     <Compile Include="webapp\modules\admin\views\member\edit.php" />
     <Compile Include="webapp\modules\admin\views\member\list.php" />
+    <Compile Include="webapp\modules\admin\views\settings\vote.php" />
     <Compile Include="webapp\modules\feapi\controllers\FileController.php" />
     <Compile Include="webapp\modules\feapi\controllers\MemberController.php" />
     <Compile Include="webapp\modules\feapi\controllers\VotesController.php" />
     <Compile Include="webapp\modules\feapi\controllers\UserController.php" />
+    <Compile Include="webapp\modules\feapi\models\Settings.php" />
     <Compile Include="webapp\modules\feapi\models\Votes.php" />
     <Compile Include="webapp\modules\feapi\models\Member.php" />
     <Compile Include="webapp\modules\fe\controllers\CenterController.php" />

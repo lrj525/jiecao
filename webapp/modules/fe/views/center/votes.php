@@ -8,6 +8,7 @@ $this->title='节操币系统-送节操';
             <div class="col-xs-9">
 
                 <select class="form-control" ng-model="voteData.god_member_id" ng-options="member.id as (member.name+' ['+member.username+']') for member in list" required name="god_member_id" errormsg="必须选一个人"></select>
+                <p>每个月只能送出一枚节操币</p>
             </div>
         </div>
         <div class="form-group">

@@ -102,7 +102,7 @@ App.controller("memberVotesCtrl", [
                 document.title = document.title.replace("{{0}}",res.data.name);
             }
         });
-        var minDate = new Date(2016, 10);
+        var minDate = new Date(2016, 9);
         var maxDate = new Date();
         $scope.datepickerOptions = {
             showWeeks: false,
@@ -181,7 +181,7 @@ App.controller("votesCtrl", [
     "apiService",
     "$uibModal",
     function ($scope, apiService, $uibModal) {
-        var minDate = new Date(2016, 10);
+        var minDate = new Date(2016, 9);
         var maxDate = new Date();
         $scope.datepickerOptions = {
             showWeeks: false,
@@ -215,7 +215,9 @@ App.controller("votesCtrl", [
             apiService.post("/member/search", $scope.query).then(function (res) {
                 if (res.success) {
                     $scope.list = res.data.list;
-                    $scope.voteData.god_member_id = $scope.list[0].id;
+                    //$scope.voteData.god_member_id = $scope.list[0].id;
+                    $scope.list = [{ id: "", username: "--请选择--", name: "" }].concat($scope.list);
+                    $scope.voteData.god_member_id = "";
                     $scope.totalCount = res.data.totalCount;
                 }
             });
@@ -252,7 +254,7 @@ App.controller("rankCtrl", [
     "apiService",
     "$uibModal",
     function ($scope, apiService, $uibModal) {
-        var minDate = new Date(2016, 10);
+        var minDate = new Date(2016, 9);
         var maxDate = new Date();
         $scope.datepickerOptions = {
             showWeeks: false,

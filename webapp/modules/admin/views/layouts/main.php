@@ -50,19 +50,15 @@ $this->beginPage() ?>
         </div>
         <div class="row main">
             <div class="col-xs-3 mleft menu" ng-controller="mainLeftCtrl">
-                <!--<dl>
-                    <dt>统计数据</dt>
+                <dl>
+                    <dt>设置</dt>
                     <dd>
-                        <a href="/admin/archive/month-statistic">
-                            <span class="leftmenu-dot"></span>查看生成
+                        <a href="/admin/settings/vote">
+                            <span class="leftmenu-dot"></span>送节操设置
                         </a>
                     </dd>
-                    <dd>
-                        <a href="/admin/archive/month-list">
-                            <span class="leftmenu-dot"></span>归档数据
-                        </a>
-                    </dd>
-                </dl>-->
+                    
+                </dl>
                 <dl>
                     <dt>员工管理</dt>
                     <dd>

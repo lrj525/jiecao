@@ -6,6 +6,7 @@ use yii\web\Controller;
 use webapp\controllers\ApiBaseController;
 use webapp\modules\feapi\models\Votes;
 use webapp\modules\feapi\models\Member;
+use webapp\modules\feapi\models\Settings;
 class VotesController extends ApiBaseController
 {
 
@@ -16,10 +17,14 @@ class VotesController extends ApiBaseController
     ];
 
     /**
-     * 编辑
+     * 送节操
      * @author lrj
      */
     public function actionSave(){
+        $vote_closed=Settings::getVoteClosed();
+        if($vote_closed==1){
+            return ['success'=>false,'message'=>'送节操功能当前处于关闭状态'];
+        }
         $supporter_member_id=Yii::$app->user->identity->id;
         $god_member_id = intval(Yii::$app->request->post('god_member_id',0));
         $notes=Yii::$app->request->post('notes','');
