@@ -188,7 +188,7 @@ class Member extends ModelBase
                 }
             }
         }
-
+        $query->andWhere(['>','(SELECT count(id) from jc_votes where jc_votes.god_member_id=jc_member.id)',0]);
         //$sql=$query->createCommand()->getRawSql();
 		// 总数
 		$totalCount = $query->count();

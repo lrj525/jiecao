@@ -19,12 +19,12 @@ $this->title='节操币系统-个人信息';
         <div class="form-group">
             <label class="col-xs-3 control-label">头像</label>
             <div class="col-xs-9">               
-                <div class="avatar">
-                    <div class="glyphicon glyphicon-user default-icon"></div>                    
+                <div class="avatar" ng-click="openImageCropModal()">
+                    <div class="glyphicon glyphicon-user default-icon"></div>
                     <div class="photo" ng-show="userData.avatar">
                         <img ng-src="{{userData.avatar}}" />
                     </div>
-                    <div class="edit" ng-click="openImageCropModal()">更换</div>
+                    <div class="edit">更换</div>
                 </div>
             </div>
         </div>

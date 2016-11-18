@@ -149,7 +149,7 @@ a:link, a:hover, a:visited { text-decoration: none; }
 
 .avatarList{border-radius:5px;background-color:#08a1ef;}
 /*.avatarList .default-icon{color:#ccc}*/
-
+.modal-footer .btn{width:88px;}
 @media screen and (max-width: 510px) {
     /*.pbody{padding:15px 0;}*/
     .header .user-nav-wrap { overflow-x: auto; }
@@ -175,4 +175,10 @@ a:link, a:hover, a:visited { text-decoration: none; }
     .member-vote-month-filter .title{font-size:12px;}
     .member-vote-month-filter .filter-right{padding-left:0;}
     .member-vote-month-filter .filter-right input{width:100px;}
+    .cropArea {  width: 268px; height: 200px; }
+    .modal-title{font-size:14px;}
+    .modal-title .action{padding-left:10px;}
+    .modal-footer .col-xs-5{width:30%;}
+    .modal-footer .col-xs-7{width:70%;}
+    .modal-footer .btn{width:80px;}
 }

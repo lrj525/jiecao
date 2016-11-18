@@ -268,7 +268,7 @@ App.controller("rankCtrl", [
         
         //列表
         $scope.currentPage = 1;
-        $scope.pagesize = 30;
+        $scope.pagesize = 50;
         $scope.totalCount = 0
         $scope.query = {
             page: $scope.currentPage,
