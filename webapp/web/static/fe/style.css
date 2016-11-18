@@ -91,7 +91,7 @@ a:link, a:hover, a:visited { text-decoration: none; }
 
 .member-edit input.form-control{width:200px;}
 .list .operbtn{border-radius:3px;margin-left:3px;margin-right:3px;padding:3px 6px;border:1px solid #00cd8c;}
-.pbody{background-color:#fff;padding:15px;height:100%;margin-left:-15px;margin-right:-15px;}
+.pbody{background-color:#fff;padding:15px;min-height:100%;margin-left:-15px;margin-right:-15px;}
 
 .vote .list{border-bottom:1px solid #f2f2f2;padding-top:10px;padding-bottom:10px;}
 .vote .list .month{color:#999;margin:0;}
@@ -149,3 +149,5 @@ a:link, a:hover, a:visited { text-decoration: none; }
 .avatarIcon{margin-top:5px;}
 .avatarName{display:inline-block;padding-left:5px;}
 
+.avatarList{border-radius:5px;background-color:#fff;}
+.avatarList .default-icon{color:#ccc}
