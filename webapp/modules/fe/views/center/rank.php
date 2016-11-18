@@ -1,7 +1,7 @@
 <?php
 $this->title='节操币系统-节操排名';
 ?>
-<div class="vote ngCloak" ng-controller="rankCtrl" ng-init="getList(1)">
+<div class="vote ngCloak vote-rank" ng-controller="rankCtrl" ng-init="getList(1)">
     <div class="row">
         <div class="col-xs-12">
             <table>

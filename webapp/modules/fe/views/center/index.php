@@ -3,21 +3,21 @@ $this->title='节操币系统-首页';
 ?>
 <div class="vote ngCloak" ng-controller="centerCtrl" ng-init="getList(1)">
     <h1 class="title1 line-bottom">节操墙</h1>
-    <div class="row list" ng-repeat="item in list">
+    <div class="row list vote-list" ng-repeat="item in list">
         <div class="col-xs-3">
             <!--<p class="month" ng-bind-html="item.month"></p>-->
-            <div style="height:50px;line-height:50px;"> 
+            <div class="listavatar_wrap" > 
                 
-                <div class="avatarIcon avatarList pull-left">
+                <div class="avatarIcon avatarList">
                     <div class="glyphicon glyphicon-user default-icon"></div>
                     <div class="photo" ng-show="userData.avatar">
                         <img ng-src="{{userData.avatar}}" />
                     </div>
                 </div>
-                <div class="avatarName pull-left">
+                <div class="avatarName">
 <a ng-href="/fe/center/member-votes?id={{item.god_member_id}}"  title="点击查看他/她的节操">&nbsp;{{item.god_name}}</a></div>
             </div>
-            <p class="time"><span class="glyphicon glyphicon-time" ng-bind-html="item.create_time"></span></p>           
+            <p class="time"><span class="" ng-bind-html="item.create_time"></span></p>           
         </div>
         <div class="col-xs-9 right">
             <div class="chevron-right line-right"></div>

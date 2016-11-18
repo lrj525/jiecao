@@ -39,7 +39,7 @@ a:link, a:hover, a:visited { text-decoration: none; }
 .back-white { background: #FFF !important; padding: 10px; }
 .ngCloak { display: none; }
 /*日期组件边框*/
-[date-picker] { border-radius: 0px; background-color: #fff; border: 3px solid #eee; }
+[date-picker] { border-radius: 0px; background-color: #fff; border: 1px solid #eee; }
 [date-picker] table { width: 100%; }
 .date-picker-over { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,.3); }
 
@@ -70,7 +70,8 @@ a:link, a:hover, a:visited { text-decoration: none; }
 
 .header { height: 50px; background-color: #4D5F84; color: #fff; min-width:320px;box-sizing:border-box;padding:0px;margin:0;}
 .header .brand { font-size: 18px; font-weight: bold; line-height: 80px; }
-.header .user-nav {  color: #fff; }
+.header .user-nav-wrap{width:100%;overflow:hidden;-webkit-overflow-scrolling: touch;overflow-scrolling: touch;}
+.header .user-nav {  color: #fff; width:568px;}
 .header .user-nav li { line-height:50px;float: left; margin-right: 15px; }
 .header .user-nav li a { color: #fff; }
 
@@ -110,6 +111,7 @@ a:link, a:hover, a:visited { text-decoration: none; }
 .vote .god-list{margin-top:15px;}
 .vote  .line{border-bottom:1px solid #ccc;margin-top:15px;}
 .noData{font-weight:bold;font-size:16px;text-align:center;line-height:24px;}
+.send-vote .month-input{width:110px;}
 .title{font-weight:bold;font-size:14px;line-height:24px;}
 
 .vote .list .count{font-size:16px;font-weight:bold;}
@@ -129,12 +131,7 @@ a:link, a:hover, a:visited { text-decoration: none; }
 
 /*.crop_wrap{width:568px;height:430px;background:#ccc;}*/
 
-.cropArea {
-      background: #E4E4E4;
-      overflow: hidden;
-      width:568px;
-      height:430px;
-    }
+.cropArea { background: #E4E4E4; overflow: hidden; width: 568px; height: 430px; }
 .modal-header { padding: 17px 20px; border-bottom: 1px solid #ccd5db; min-height: 21.43px; background-color: #f7f7f7; border-top-left-radius: 6px; border-top-right-radius: 6px; }
 .modal-header .close { margin-top: -2px; }
 .modal-title { margin: 0; line-height: 1.42857143; }
@@ -142,12 +139,40 @@ a:link, a:hover, a:visited { text-decoration: none; }
 .modal-title .action { color: #a3afb7; font-size: 12px; padding-left: 20px; }
 .no-line { border: none !important; }
 
-.avatarIcon{display:inline-block;width:40px;height:40px;background-color:rgba(255,255,255,.5);border-radius:50%;position:relative;overflow:hidden;}
+.listavatar_wrap{height:50px;line-height:50px;}
+.avatarIcon{display:inline-block;width:40px;height:40px;background-color:rgba(255,255,255,.5);position:relative;overflow:hidden;float:left;}
 .avatarIcon .default-icon{position:absolute;width:100%;height:100%;left:0;top:0;color:#fff;font-size:30px;line-height:40px;text-align:center;z-index:1;}
 .avatarIcon .photo{position:absolute;width:100%;height:100%;left:0;top:0;z-index:2;}
 .avatarIcon .photo img {max-height:100%;max-width:100%;}
 .avatarIcon{margin-top:5px;}
-.avatarName{display:inline-block;padding-left:5px;}
+.avatarName{display:inline-block;padding-left:5px;float:left;}
 
 .avatarList{border-radius:5px;background-color:#08a1ef;}
 /*.avatarList .default-icon{color:#ccc}*/
+
+@media screen and (max-width: 568px) {
+    /*.pbody{padding:15px 0;}*/
+    .header .user-nav-wrap { overflow-x: auto; }
+
+    .listavatar_wrap{height:auto;line-height:inherit;}
+    .listavatar_wrap .avatarIcon { width: 50px; height: 50px; background-color: rgba(255,255,255,.5);  position: relative; overflow: hidden; display:block;float:none;}
+   .listavatar_wrap .avatarIcon .default-icon { position: absolute; width: 100%; height: 100%; left: 0; top: 0; color: #fff; font-size: 40px; line-height: 50px; text-align: center; z-index: 1; }
+    .listavatar_wrap .avatarIcon .photo { position: absolute; width: 100%; height: 100%; left: 0; top: 0; z-index: 2; }
+    .listavatar_wrap .avatarIcon .photo img { max-height: 100%; max-width: 100%; }
+    .listavatar_wrap .avatarIcon { margin:0 auto;}
+    .listavatar_wrap .avatarName {display:block;float:none; text-align:center;padding-left:0;}
+    .listavatar_wrap .avatarList{border-radius:5px;background-color:#08a1ef;}
+    .vote .list .time{color:#999;margin:0;font-size:12px;text-align:center;}
+   
+    .vote .vote-list{position:relative;min-height:120px;}
+    .vote .vote-list .col-xs-3{position:absolute;width:100px;left:0;top:15px;}
+    .vote .vote-list .col-xs-9{width:100%;padding-left:115px;}
+    .vote .list .chevron-right {  left: 100px;}
+    .vote .list .right{min-height:120px;}
+    /*.vote-rank{padding:0 15px;}
+    .send-vote{padding:0 15px;}
+    .member-vote-month-filter{}*/
+    .member-vote-month-filter .title{font-size:12px;}
+    .member-vote-month-filter .filter-right{padding-left:0;}
+    .member-vote-month-filter .filter-right input{width:100px;}
+}

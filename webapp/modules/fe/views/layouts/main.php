@@ -44,41 +44,43 @@ $this->beginPage() ?>
     <div ng-controller="mainCtrl">
         <div class="row header" ng-show="showHeader" ng-init="getMyInfo()">
             <div class="container-fluid">
-                <ul class="user-nav">
+                <div class="user-nav-wrap">
+                    <ul class="user-nav clearfix">
 
-                    <li>
-                        <a href="/fe/center">首页</a>
-                    </li>
-                    <li>
-                        <a href="/fe/center/rank">排名</a>
-                    </li>
+                        <li>
+                            <a href="/fe/center">首页</a>
+                        </li>
+                        <li>
+                            <a href="/fe/center/rank">排名</a>
+                        </li>
 
-                    <li>
-                        <a href="/fe/center/votes">送节操</a>
-                    </li>
-                    <li>
-                        <a ng-href="/fe/center/member-votes?id={{userData.id}}">我的节操</a>
-                    </li>
-                    <li>
-                        <a href="/fe/center/my-info">个人信息</a>
-                    </li>
-                    <li>
-                        <a href="/fe/center/modify-password">修改密码</a>
-                    </li>
-                    <li style="float:right;">
-                        <a ng-click="logout()">退出</a>
-                    </li>
-                    <li style="float:right;height:50px;line-height:50px;">
-                        <div class="avatarIcon pull-left">
-                            <div class="glyphicon glyphicon-user default-icon"></div>
-                            <div class="photo" ng-show="userData.avatar">
-                                <img ng-src="{{userData.avatar}}" />
+                        <li>
+                            <a href="/fe/center/votes">送节操</a>
+                        </li>
+                        <li>
+                            <a ng-href="/fe/center/member-votes?id={{userData.id}}">我的节操</a>
+                        </li>
+                        <li>
+                            <a href="/fe/center/my-info">个人信息</a>
+                        </li>
+                        <li>
+                            <a href="/fe/center/modify-password">修改密码</a>
+                        </li>
+                        <li style="float:right;">
+                            <a ng-click="logout()">退出</a>
+                        </li>
+                        <li style="float:right;height:50px;line-height:50px;">
+                            <div class="avatarIcon pull-left">
+                                <div class="glyphicon glyphicon-user default-icon"></div>
+                                <div class="photo" ng-show="userData.avatar">
+                                    <img ng-src="{{userData.avatar}}" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="avatarName pull-left">{{userData.name}}</div>
-                    </li>
+                            <div class="avatarName pull-left">{{userData.name}}</div>
+                        </li>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

@@ -2,9 +2,9 @@
 $this->title='节操币系统-{{0}}的节操';
 ?>
 <div class="vote ngCloak" ng-controller="memberVotesCtrl" ng-init="getList(1)">
-    <div class="row list">
+    <div class="row list member-vote-month-filter">
         <div class="col-xs-4 title">共获得{{totalCount}}节操</div>
-        <div class="col-xs-8 title">
+        <div class="col-xs-8 title filter-right">
             <table>
                 <tr>
                     <td>
@@ -19,22 +19,23 @@ $this->title='节操币系统-{{0}}的节操';
         </div>
 
     </div>
-    <div class="row list" ng-repeat="item in list">
+    <div class="row list vote-list" ng-repeat="item in list">
         <div class="col-xs-3">
-            <div style="height:50px;line-height:50px;">
+            <!--<p class="month" ng-bind-html="item.month"></p>-->
+            <div class="listavatar_wrap">
 
-                <div class="avatarIcon avatarList pull-left">
+                <div class="avatarIcon avatarList">
                     <div class="glyphicon glyphicon-user default-icon"></div>
                     <div class="photo" ng-show="userData.avatar">
                         <img ng-src="{{userData.avatar}}" />
                     </div>
                 </div>
-                <div class="avatarName pull-left">
+                <div class="avatarName">
                     <a ng-href="/fe/center/member-votes?id={{item.god_member_id}}" title="点击查看他/她的节操">&nbsp;{{item.god_name}}</a>
                 </div>
             </div>
             <p class="time">
-                <span class="glyphicon glyphicon-time" ng-bind-html="item.create_time"></span>
+                <span class="" ng-bind-html="item.create_time"></span>
             </p>
         </div>
         <div class="col-xs-9 right">

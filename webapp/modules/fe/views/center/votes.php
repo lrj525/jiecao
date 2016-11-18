@@ -1,7 +1,7 @@
 <?php
 $this->title='节操币系统-送节操';
 ?>
-<div class="vote" ng-controller="votesCtrl" ng-init="getList(1)">
+<div class="vote send-vote" ng-controller="votesCtrl" ng-init="getList(1)">
     <form class="form-horizontal" style="margin-top:15px;" name="submit_form">
         <div class="form-group">
             <label class="col-xs-3 control-label">送给</label>
@@ -13,8 +13,8 @@ $this->title='节操币系统-送节操';
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">月份</label>
-            <div class="col-xs-3">
-                <input type="text" class="form-control" readonly="readonly" style="cursor:text;background:#ffffff;" placeholder="选择月份" uib-datepicker-popup="yyyy-MM" is-open="is_open" show-button-bar="false" datepicker-options="datepickerOptions" ng-model="voteData.month" ng-click="is_open=true" name="month" required errormsg="必须选择一个月份" />
+            <div class="col-xs-9">
+                <input type="text" class="form-control month-input" readonly="readonly" style="cursor:text;background:#ffffff;" placeholder="选择月份" uib-datepicker-popup="yyyy-MM" is-open="is_open" show-button-bar="false" datepicker-options="datepickerOptions" ng-model="voteData.month" ng-click="is_open=true" name="month" required errormsg="必须选择一个月份" />
             </div>
         </div>
         <div class="form-group">
