@@ -109,7 +109,6 @@
     <Content Include="webapp\web\static\angular\ng-img-crop\ng-img-crop.min.js" />
     <Content Include="webapp\web\static\fe\common.js" />
     <Content Include="webapp\web\static\fe\controller.js" />
-    <Content Include="webapp\web\static\fe\file-upload-single-tpl.html" />
     <Content Include="webapp\web\static\fe\style.css" />
     <Content Include="webapp\web\static\admin\controller.js" />
     <Content Include="webapp\web\static\admin\style.css" />
